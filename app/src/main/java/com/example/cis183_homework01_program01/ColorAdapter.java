@@ -44,7 +44,22 @@ public class ColorAdapter extends ArrayAdapter<ColorInfo>
         TextView tv_j_colorCell_hex = (TextView) convertView.findViewById(R.id.tv_v_colorCell_hex);
         TextView tv_j_colorCell_hexNum = (TextView) convertView.findViewById(R.id.tv_v_colorCell_hexNum);
 
-        
+        //setting the text
+        tv_j_colorCell_redNum.setText(Integer.valueOf(colorInfo.getR()).toString());
+        tv_j_colorCell_greenNum.setText(Integer.valueOf(colorInfo.getG()).toString());
+        tv_j_colorCell_blueNum.setText(Integer.valueOf(colorInfo.getB()).toString());
+        tv_j_colorCell_hexNum.setText(colorInfo.getHexadecimal());
+
+        //setting the color of the text
+        tv_j_colorCell_red.setTextColor(colorInfo.getTextColor());
+        tv_j_colorCell_green.setTextColor(colorInfo.getTextColor());
+        tv_j_colorCell_blue.setTextColor(colorInfo.getTextColor());
+        tv_j_colorCell_hex.setTextColor(colorInfo.getTextColor());
+        tv_j_colorCell_redNum.setTextColor(colorInfo.getTextColor());
+        tv_j_colorCell_greenNum.setTextColor(colorInfo.getTextColor());
+        tv_j_colorCell_blueNum.setTextColor(colorInfo.getTextColor());
+        tv_j_colorCell_hexNum.setTextColor(colorInfo.getTextColor());
+
 
         String hex = "#" + tv_j_colorCell_hexNum.getText().toString();
         convertView.setBackgroundColor(Color.parseColor(hex));
