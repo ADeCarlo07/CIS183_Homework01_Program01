@@ -3,6 +3,7 @@ package com.example.cis183_homework01_program01;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -12,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
 
 //==================================================================
 //Author: Allison DeCarlo
@@ -39,6 +42,10 @@ public class MainActivity extends AppCompatActivity
 
     String hexFinal;
 
+    private ListView lv_j_savedColors;
+
+    public static ArrayList<ColorInfo> colorInfoList = new ArrayList<ColorInfo>();
+
     ConstraintLayout main;
 
     @Override
@@ -53,6 +60,7 @@ public class MainActivity extends AppCompatActivity
             return insets;
         });
 
+
         tv_j_redNum = findViewById(R.id.tv_v_redNum);
         tv_j_greenNum = findViewById(R.id.tv_v_greenNum);
         tv_j_blueNum = findViewById(R.id.tv_v_blueNum);
@@ -66,9 +74,29 @@ public class MainActivity extends AppCompatActivity
         sb_j_green = findViewById(R.id.sb_v_green);
         sb_j_blue = findViewById(R.id.sb_v_blue);
         main = findViewById(R.id.main);
+        lv_j_savedColors = findViewById(R.id.lv_v_savedColors);
+
+        setUpList();
+
+        resetSlidersAndBackground();
 
         SliderChangeListener();
 
+
+
+    }
+
+    public void setUpList()
+    {
+        ColorInfo firstColor = new ColorInfo(38, 111, 140, "216F8C", Color.WHITE);
+        colorInfoList.add(firstColor);
+        ColorInfo secondColor = new ColorInfo(214, 98, 74, "D6624A", Color.BLACK);
+        colorInfoList.add(secondColor);
+        ColorInfo thirdColor = new ColorInfo(150, 48, 255, "9630FF", Color.WHITE);
+        colorInfoList.add(thirdColor);
+
+        ColorAdapter adapter = new ColorAdapter(getApplicationContext(), 0, colorInfoList);
+        lv_j_savedColors.setAdapter(adapter);
     }
 
     public void SliderChangeListener()
@@ -188,6 +216,35 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+    public void resetSlidersAndBackground()
+    {
+        //resetting colors and numbers for after a color is saved
+        //will also go at the very beginning so all values are
+        //correct for the color white
+        sb_j_red.setProgress(255);
+        redProgress = 255;
+        sb_j_green.setProgress(255);
+        greenProgress = 255;
+        sb_j_blue.setProgress(255);
+        blueProgress = 255;
+        tv_j_redNum.setText("255");
+        tv_j_greenNum.setText("255");
+        tv_j_blueNum.setText("255");
+        tv_j_hex.setText("FFFFFF");
+        main.setBackgroundColor(Color.WHITE);
+
+        tv_j_hexRep.setTextColor(Color.BLACK);
+        tv_j_red.setTextColor(Color.BLACK);
+        tv_j_green.setTextColor(Color.BLACK);
+        tv_j_blue.setTextColor(Color.BLACK);
+        tv_j_redNum.setTextColor(Color.BLACK);
+        tv_j_greenNum.setTextColor(Color.BLACK);
+        tv_j_blueNum.setTextColor(Color.BLACK);
+        tv_j_hex.setTextColor(Color.BLACK);
+
+    }
+
 
     public void RGBHexConverter()
     {

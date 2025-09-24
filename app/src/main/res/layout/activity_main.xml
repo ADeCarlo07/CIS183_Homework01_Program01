@@ -35,24 +35,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_v_save">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
     <SeekBar
         android:id="@+id/sb_v_red"
         android:layout_width="0dp"
@@ -62,6 +44,7 @@
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="16dp"
         android:max="255"
+        android:progress="255"
         app:layout_constraintBottom_toTopOf="@+id/tv_v_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +59,7 @@
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="35dp"
         android:max="255"
+        android:progress="255"
         app:layout_constraintBottom_toBottomOf="@+id/tv_v_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,6 +74,7 @@
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="33dp"
         android:max="255"
+        android:progress="255"
         app:layout_constraintBottom_toBottomOf="@+id/tv_v_hex"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +120,7 @@
         android:layout_marginTop="62dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="68dp"
-        android:text="0"
+        android:text="255"
         android:textColor="#040404"
         app:layout_constraintBottom_toBottomOf="@+id/tv_v_greenNum"
         app:layout_constraintEnd_toEndOf="@+id/tv_v_greenNum"
@@ -149,7 +134,7 @@
         android:layout_marginStart="7dp"
         android:layout_marginTop="68dp"
         android:layout_marginBottom="68dp"
-        android:text="0"
+        android:text="255"
         android:textColor="#040404"
         app:layout_constraintBottom_toBottomOf="@+id/tv_v_blue"
         app:layout_constraintStart_toEndOf="@+id/tv_v_green"
@@ -161,7 +146,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginBottom="1dp"
-        android:text="0"
+        android:text="255"
         android:textColor="#040404"
         app:layout_constraintBottom_toTopOf="@+id/sb_v_blue"
         app:layout_constraintStart_toEndOf="@+id/tv_v_blue" />
@@ -182,9 +167,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginBottom="17dp"
-        android:text="000000"
+        android:text="FFFFFF"
         android:textColor="#040404"
         app:layout_constraintBottom_toTopOf="@+id/btn_v_save"
         app:layout_constraintStart_toEndOf="@+id/tv_v_hexRep" />
+
+    <ListView
+        android:id="@+id/lv_v_savedColors"
+        android:layout_width="409dp"
+        android:layout_height="381dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_v_save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
