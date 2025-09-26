@@ -2,6 +2,11 @@ package com.example.cis183_homework01_program01;
 
 import android.graphics.Color;
 
+//==================================================================
+//Author: Allison DeCarlo
+//Date  : 10/05/2025
+//Desc  : RGB Homework02
+//==================================================================
 public class ColorInfo
 {
     int R;
@@ -10,6 +15,7 @@ public class ColorInfo
     String hexadecimal;
     int textColor;
 
+    //overloaded constructor
     public ColorInfo(int r, int g, int b, String hexadecimal, int textColor)
     {
         R = r;
@@ -24,6 +30,7 @@ public class ColorInfo
 
     }
 
+    //getters and setters
     public int getR()
     {
         return R;

@@ -13,6 +13,11 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
+//==================================================================
+//Author: Allison DeCarlo
+//Date  : 10/05/2025
+//Desc  : RGB Homework02
+//==================================================================
 public class ColorAdapter extends ArrayAdapter<ColorInfo>
 {
     //Here is the video tutorial I used for this:
